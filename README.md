@@ -1,174 +1,348 @@
-# Dynamic Pricing Analytics & Customer Churn Diagnostics  
-### 🚖 Quick Commerce & Food Delivery Ecosystem (Gurugram Market)
+# 🎟️ District Live Events & Dining: Dynamic Pricing Analytics & Checkout Attrition Diagnostics
+
+### Nightlife, Live Entertainment & Premium Dining Ecosystem | Gurugram NCR
+
+[![SQL](https://img.shields.io/badge/SQL-SQLite%20%7C%20PostgreSQL-blue)](https://www.sqlite.org/)
+[![Python](https://img.shields.io/badge/Python-Pandas%20%7C%20NumPy-yellow)](https://www.python.org/)
+[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow)](https://powerbi.microsoft.com/)
+[![Analytics](https://img.shields.io/badge/Analytics-Product%20Analytics-green)](https://en.wikipedia.org/wiki/Product_analytics)
+[![Experimentation](https://img.shields.io/badge/A%2FB%20Testing-Hypothesis%20Testing-orange)](https://en.wikipedia.org/wiki/A/B_testing)
 
 ---
 
-## 📌 Project Overview & Business Context
+## 📌 1. Project Overview
 
-In high-frequency quick-commerce markets like Gurugram, dynamic pricing and delivery surge multipliers heavily influence customer retention and checkout behavior.
+This project presents an end-to-end commercial analytics framework designed to diagnose dynamic pricing inefficiencies and checkout abandonment across **District (by Eternal)**, focusing on the nightlife, live entertainment, and premium dining ecosystem in the Gurugram NCR market.
 
-This project delivers a strategic diagnostic framework analyzing **10,000+ simulated transactional checkout sessions** across high-density logistics clusters.
+The analysis uses **10,000+ simulated transactional checkout sessions** across high-density lifestyle corridors, including:
 
-The primary objective was to identify structural revenue leakage during peak-demand volatility, isolate customer price-elasticity thresholds, and engineer data-backed operational recommendations to safeguard Gross Merchandise Value (GMV) without negatively affecting platform unit economics.
+- DLF CyberHub
+- Golf Course Road
+- Sector 29, Gurugram
 
-🔗 **Live Interactive Power BI Dashboard:**  
-[[🔗 View Live Interactive Power BI Dashboard](https://app.powerbi.com/links/Bq9Rd5-tv6?ctid=dce8bb35-165c-4983-8608-dec340151756&pbi_source=linkShare)]
+On high-frequency entertainment and lifestyle commerce platforms, convenience fees, peak-hour reservation surcharges, and dynamic event-ticketing tiers can directly influence customer conversion and checkout abandonment.
+
+The project investigates how pricing friction impacts booking completion and identifies opportunities to optimize GMV, conversion rates, and platform take-rate.
+
+### 🎯 Primary Business Objectives
+
+- Identify structural Gross Merchandise Value (GMV) leakage during high-demand booking periods.
+- Analyze customer Willingness-to-Pay (WTP) thresholds and price elasticity.
+- Identify pricing thresholds associated with increased checkout abandonment.
+- Evaluate the commercial impact of capped dynamic pricing.
+- Recommend operational guardrails to improve conversion without compromising platform revenue.
 
 ---
 
-# 🛠️ Data Infrastructure & Tech Stack
+## 🔗 2. Live Interactive Power BI Dashboard
+
+**[View Live Interactive Power BI Dashboard](PASTE_YOUR_POWER_BI_DASHBOARD_URL_HERE)**
+
+*Replace the placeholder above with your published Power BI dashboard URL.*
+
+---
+
+## 🛠️ 3. Technology Stack
 
 | Technology | Purpose |
-|------------|----------|
-| **SQL (SQLite)** | Transaction-level data extraction, funnel segmentation, and behavioral mapping |
-| Python (Pandas, NumPy, SciPy) | Data cleaning, transformation, statistical analysis, and A/B testing |
-| **Power BI Desktop** | Executive-facing dashboard development and KPI visualization |
-| **DAX** | Churn-rate calculations and analytical metric generation |
-| A/B Testing | Controlled experiment design, conversion analysis, and lift measurement |
-| Statistical Hypothesis Testing | Two-proportion Z-test and statistical significance evaluation |
-| **Generative AI (ChatGPT)** | Workflow acceleration, documentation refinement, and insight validation |
+|---|---|
+| SQL (SQLite / PostgreSQL) | Transactional data extraction, checkout funnel segmentation, and cohort analysis |
+| Python (Pandas, NumPy) | Data cleaning, transformation, and analytical processing |
+| SciPy | Statistical hypothesis testing and experimentation |
+| Power BI Desktop | Executive dashboard development and KPI visualization |
+| DAX | Funnel attrition, conversion, and take-rate calculations |
+| A/B Testing | Evaluation of capped-surcharge pricing strategies |
+| Generative AI | Analytical validation, SQL edge-case checking, and documentation support |
 
 ---
 
-# 📊 Core Business Metrics & Attrition Cohorts
+## 📊 4. Dataset & Checkout Attrition Analysis
 
-The checkout funnel was segmented into three surge-pricing tiers to evaluate customer price sensitivity and abandonment behavior.
+The project analyzes 10,000+ simulated checkout sessions segmented into three dynamic pricing cohorts.
 
-| Surge Fee Cohort | Pricing Threshold | Documented Attrition Rate | Strategic Operational Interpretation |
-|------------------|------------------|---------------------------|--------------------------------------|
-| **Low Baseline Surge** | 0 – 30 INR | **9.92%** | Stable customer willingness-to-pay and strong retention |
-| **Volatile Medium Surge** | 31 – 70 INR | **28.62%** | Customer friction begins and competitive substitution risk increases |
-| **Critical Peak Surge** | > 70 INR | **59.92%** | Severe checkout abandonment and conversion collapse |
+The objective is to understand how increasing convenience fees and peak-demand surcharges influence customer booking decisions.
 
-### 📌 Overall Platform Funnel Attrition Rate:
-**33.47% cumulative checkout abandonment across all monitored user sessions**
+### Dynamic Pricing Cohorts
+
+| Pricing Cohort | Surcharge Range | Checkout Attrition Rate | Business Interpretation |
+|---|---:|---:|---|
+| Low Baseline | ₹0–₹30 | 9.92% | High willingness-to-pay and relatively frictionless conversion |
+| Medium Surge | ₹31–₹70 | 28.62% | Increasing pricing friction and competitive evaluation |
+| Critical Peak | Above ₹70 | 59.92% | Significant checkout abandonment and conversion deterioration |
+
+### Key Finding
+
+Checkout abandonment increases sharply when dynamic surcharges exceed ₹70.
+
+This indicates a potential psychological pricing threshold where customers become more sensitive to additional booking costs.
+
+### Overall Platform Funnel Attrition
+
+**33.47%**
+
+Overall checkout abandonment across the 10,000 monitored simulated sessions.
 
 ---
 
-# 📐 Funnel Attrition Methodology
+## 📐 5. Funnel Attrition Methodology
 
-To isolate behavioral drop-off patterns, the transactional dataset was mapped into structured commercial funnels instead of relying solely on flat aggregate counting.
+Rather than relying on aggregate website visits, the analysis focuses on actual checkout attempts and their final purchase outcomes.
 
-## Churn Rate Formula
+The funnel attrition rate is calculated as:
 
-```math
-Funnel Attrition Rate (%) =
-(Total Dropped Users ÷ Total Checkout Attempts) × 100
-```
+\[
+\text{Attrition Rate} =
+\frac{\text{Abandoned Checkout Sessions}}
+{\text{Total Checkout Attempts}} \times 100
+\]
 
-# 🧪 A/B Testing & Experimentation
+Where:
 
-To evaluate whether a capped-surge pricing strategy could improve checkout conversion, a simulated controlled A/B experiment was conducted using 10,000 checkout sessions.
+- Total Checkout Attempts = All sessions reaching checkout.
+- Abandoned Checkout Sessions = Sessions that did not complete payment.
+- Successful Bookings = Sessions with confirmed transactions.
+
+This approach helps identify the pricing cohorts responsible for the highest conversion leakage.
+
+---
+
+## 🧪 6. A/B Testing & Controlled Experimentation
+
+A controlled A/B testing framework was designed to evaluate whether a capped-surcharge and transparent-pricing strategy could improve checkout conversion.
 
 ### Experiment Design
 
-| Group | Strategy | Users | Conversion Rate |
-|---|---|---:|---:|
-| Control | Existing high-surge pricing | 5,000 | 35.0% |
-| Treatment | Capped-surge pricing strategy | 5,000 | 49.2% |
+**Control Group (A)**
+
+- Standard unconstrained dynamic surge pricing.
+- Fees increase based on demand and booking traffic.
+- No additional surcharge ceiling.
+
+**Treatment Group (B)**
+
+- Dynamic surcharge capped at ₹50.
+- Transparent pricing breakdown displayed before checkout.
+- Reduced exposure to unexpected booking fees.
+
+### Experiment Results
+
+| Metric | Control (A) | Treatment (B) |
+|---|---:|---:|
+| Pricing Strategy | Unconstrained Surge | Capped Surge |
+| Sample Size | 5,000 | 5,000 |
+| Conversion Rate | 35.0% | 49.2% |
 
 ### Statistical Analysis
 
-A two-proportion Z-test was implemented in Python to evaluate whether the observed conversion difference was statistically significant.
+| Statistical Metric | Result |
+|---|---:|
+| Control Conversion Rate | 35.0% |
+| Treatment Conversion Rate | 49.2% |
+| Absolute Conversion Lift | +14.2 percentage points |
+| Relative Conversion Lift | +40.6% |
+| Z-Statistic | 14.38 |
+| Statistical Significance | p < 0.001 |
+| 95% Confidence Interval | [12.28%, 16.12%] |
 
-**Results:**
+### Hypothesis Testing
 
-- Control Conversion Rate: **35.0%**
-- Treatment Conversion Rate: **49.2%**
-- Absolute Conversion Lift: **14.2 percentage points**
-- Relative Conversion Lift: **40.6%**
-- Z-Statistic: **14.38**
-- Statistical Significance: **p < 0.001**
+**Null Hypothesis (H₀):** There is no statistically significant difference in conversion rates between the two pricing strategies.
 
-The treatment group demonstrated a statistically significant improvement in checkout conversion compared with the control group.
+**Alternative Hypothesis (H₁):** The capped-surcharge and transparent-pricing strategy improves checkout conversion.
 
-### Business Recommendation
+**Inference:**
 
-The analysis supports further controlled rollout testing of the capped-surge strategy, while monitoring revenue, customer retention, and unit economics before full-scale implementation.
+The observed conversion improvement of 14.2 percentage points is statistically significant (p < 0.001).
 
-> **Note:** The A/B experiment uses simulated treatment outcomes for analytical demonstration and does not represent a production experiment conducted on real platform users.
+Therefore, the null hypothesis is rejected.
 
-
-### Analytical Implementation
-- Segmented raw transactional parameters into surge-pricing cohorts
-- Evaluated localized price elasticity behavior
-- Identified micro-leakage zones within the checkout funnel
-- Tracked conversion deterioration across pricing thresholds
+The simulated experiment indicates that reducing pricing friction can substantially improve checkout completion.
 
 ---
 
-## 🛠️ Corporate Data Architecture & Backend Extraction Logic
-To transform raw customer transactional telemetry into structured executive insights, a custom data-cleaning and cohort-segmentation pipeline was executed via SQL. Instead of relying on flat aggregate counts, the database was queried to track conditional purchasing funnels dynamically.
+## 🛠️ 7. SQL Data Pipeline & Backend Extraction
 
-* 📄 **Production SQL Script:** [`churn_analysis_pipeline.sql`](./churn_analysis_pipeline.sql)
+SQL was used to transform raw checkout telemetry into actionable pricing cohorts and transactional funnel metrics.
 
-=========
+### SQL: Dynamic Pricing Cohort Analysis
 
-### Executive Analytical Approach:
-1. **Willingness-to-Pay (WTP) Segmentation:** Programmatically converted raw text string variables (`c4`) into precision numeric types (`CAST AS REAL`) to establish strict consumer price-sensitivity boundaries ($0-30$, $31-70$, $>70\text{ INR}$).
-2. **Granular Funnel Aggregation:** Used conditional `SUM(CASE WHEN...)` rules to separate binary transactional success parameters (`c6`) from absolute baseline session volume.
-3. **Strategic Business Sorting:** Prioritized reporting rows by highest leakage velocity (`ORDER BY funnel_attrition_rate DESC`) to instantly highlight high-risk sectors requiring immediate revenue guardrails.
+```sql
+WITH parsed_bookings AS (
+    SELECT
+        session_id,
+        user_id,
+        event_or_restaurant_id,
+        CAST(surge_fee_inr AS REAL) AS surge_fee,
+        is_checkout_completed
+    FROM raw_district_checkout_telemetry
+),
 
-# 🔍 Critical Business Insights
+surge_cohorts AS (
+    SELECT
+        session_id,
+        is_checkout_completed,
+        CASE
+            WHEN surge_fee BETWEEN 0 AND 30
+                THEN '01. Low Baseline Surge (0-30 INR)'
 
-### 1️⃣ Price Elasticity Breach
-Customer conversion rates sharply collapse once pricing exceeds the **70 INR threshold**, indicating the existence of a psychological pricing ceiling rather than a gradual linear decline.
+            WHEN surge_fee > 30 AND surge_fee <= 70
+                THEN '02. Medium Surge (31-70 INR)'
 
-### 2️⃣ Funnel Attrition Dynamics
-The rapid increase from **9.92% churn** to **59.92% churn** reveals severe revenue leakage and measurable customer dissatisfaction during critical surge periods.
+            WHEN surge_fee > 70
+                THEN '03. Critical Peak Surge (>70 INR)'
 
-### 3️⃣ Medium Surge Instability
-Medium surge ranges also demonstrate significant churn acceleration, suggesting early-stage retention friction before reaching critical pricing thresholds.
+            ELSE 'Unclassified'
+        END AS surge_tier
+    FROM parsed_bookings
+)
+
+SELECT
+    surge_tier,
+
+    COUNT(session_id) AS total_checkout_attempts,
+
+    SUM(
+        CASE
+            WHEN is_checkout_completed = 0 THEN 1
+            ELSE 0
+        END
+    ) AS dropped_sessions,
+
+    SUM(
+        CASE
+            WHEN is_checkout_completed = 1 THEN 1
+            ELSE 0
+        END
+    ) AS successful_bookings,
+
+    ROUND(
+        SUM(
+            CASE
+                WHEN is_checkout_completed = 0 THEN 1
+                ELSE 0
+            END
+        ) * 100.0 /
+        NULLIF(COUNT(session_id), 0),
+        2
+    ) AS funnel_attrition_rate
+
+FROM surge_cohorts
+
+GROUP BY surge_tier
+
+ORDER BY funnel_attrition_rate DESC;
+```
+
+### SQL Analysis Covers
+
+- Checkout session segmentation.
+- Dynamic pricing cohort classification.
+- Successful booking identification.
+- Abandoned session calculation.
+- Cohort-wise checkout attrition.
+- Pricing sensitivity analysis.
 
 ---
 
-# 🚀 Actionable Strategic Recommendations
+## 🔍 8. Critical Commercial Insights
 
-## ✅ Smart-Cap Pricing Mechanism
-Introduce a tactical surge-price cap around the **50 INR threshold** during peak-demand periods to reduce severe abandonment behavior.
+### 1. The ₹70 Psychological Pricing Cliff
 
-## ✅ Loyalty-Based Retention Protection
-Deploy automated surge-protection plans and retention incentives for repeat or high-value customers to improve long-term customer lifetime value (LTV).
+Checkout abandonment increases to 59.92% when surcharges exceed ₹70.
 
-## ✅ Supply-Side Optimization
-Improve real-time delivery-partner allocation and dynamic incentive management during high-demand windows to naturally reduce excessive surge pricing triggers.
+This suggests that customers become significantly more sensitive to additional booking costs during high-demand periods.
 
-## ✅ Dynamic Pricing Optimization
-Continuously monitor customer price sensitivity using behavioral analytics to maintain profitability while minimizing funnel leakage.
+### 2. Medium-Tier Pricing Friction
 
----
+Attrition rises from 9.92% to 28.62% in the medium surcharge cohort.
 
-# 📈 Projected Business Impact
+This represents an important leakage zone where customers may compare alternative platforms, direct bookings, or walk-in options.
 
-| Business Area | Expected Outcome |
-|----------------|-----------------|
-| **Revenue Recovery** | Potential recovery of high-risk checkout revenue during surge periods |
-| **Customer Retention** | Reduced checkout abandonment and improved user satisfaction |
-| **GMV Stability** | Improved transaction consistency during peak operational volatility |
-| **Operational Efficiency** | Better surge management and delivery-partner allocation |
+### 3. Platform Revenue Leakage
 
----
+Excessive convenience fees can negatively affect completed transactions.
 
-# 📂 Project Deliverables
+The incremental fee revenue from higher surcharges may be outweighed by lost commission opportunities when customers abandon checkout.
 
-- Interactive Power BI Dashboard
-- SQL-Based Transaction Analysis
-- Python Data Processing Workflow
-- Business Recommendation Framework
-- Dashboard Screenshots & Documentation
+### 4. Conversion Optimization Opportunity
+
+The simulated A/B experiment demonstrates a 40.6% relative conversion improvement under the capped-surcharge strategy.
+
+This highlights the commercial potential of transparent and predictable pricing.
 
 ---
 
-# 📌 Dashboard Features
+## 🚀 9. Strategic Recommendations for District
 
-- KPI Cards for Checkout Attempts, Dropped Users & Churn Rate
-- Surge-Tier-Based Churn Analysis
-- Visual Funnel Attrition Comparison
-- Business Recommendation Section
-- Executive-Level Business Intelligence Reporting
+| Recommendation | Proposed Action | Expected Business Benefit |
+|---|---|---|
+| Dynamic Surcharge Ceiling | Cap standard booking surcharges at ₹50 | Reduce pricing friction |
+| Transparent Pricing | Display all-inclusive prices before checkout | Reduce last-minute abandonment |
+| District Priority Pass | Introduce loyalty-based surcharge waivers | Improve repeat bookings and retention |
+| Smart Waitlist Allocation | Redirect abandoned high-demand bookings to automated waitlists | Recover potential demand |
+| Pricing Experimentation | Continuously test pricing tiers and fee structures | Improve conversion and revenue efficiency |
+
+### Recommended Pricing Strategy
+
+**Implement a ₹50 Dynamic Surcharge Cap**
+
+Based on the simulated experiment, a capped-surcharge strategy could improve booking conversion while maintaining a more predictable customer experience.
+
+**Introduce Upfront Transparent Pricing**
+
+Display base ticket prices, convenience fees, taxes, and applicable surcharges directly on event and dining listing pages.
+
+**Strengthen Customer Loyalty**
+
+Explore District Priority Pass or Zomato Gold-linked benefits to encourage repeat bookings through targeted fee discounts.
 
 ---
 
-## 👨‍💻 Developed By
-**Ajeet Yadav**  
-Business Analytics Portfolio Project • 2026
+## 📈 10. Projected Commercial Impact
+
+| Business Area | Expected Strategic Outcome |
+|---|---|
+| GMV Recovery | Potential recovery of a portion of abandoned high-surcharge bookings |
+| Conversion Stability | Improved checkout conversion during Friday–Sunday peak periods |
+| Merchant Relationships | Fewer unfulfilled dining reservations caused by pricing friction |
+| Customer Retention | Improved customer experience and repeat booking potential |
+| Unit Economics | Better balance between convenience fee revenue and completed booking commissions |
+
+*Note: These are strategic projections based on simulated analytical findings, not verified production outcomes.*
+
+---
+
+## 📂 11. Project Deliverables
+
+| Deliverable | Description |
+|---|---|
+| SQL Scripts | `district_checkout_attrition_diagnostics.sql` |
+| Python Notebook | `z_test_hypothesis_validation.ipynb` |
+| Power BI Dashboard | Interactive executive dashboard (`.pbix`) |
+| Technical Documentation | Methodology, cohort definitions, and experiment specifications |
+
+---
+
+## 📌 12. Key Takeaways
+
+This project demonstrates how product analytics, SQL-based transactional analysis, and statistical experimentation can be combined to solve real-world commercial problems in the live entertainment and premium dining ecosystem.
+
+Key outcomes from the simulated analysis include:
+
+- Identified a potential pricing friction threshold above ₹70.
+- Quantified checkout abandonment across three dynamic pricing cohorts.
+- Designed a controlled A/B testing framework across 10,000 simulated sessions.
+- Observed a statistically significant +14.2 percentage-point conversion lift.
+- Developed actionable pricing and customer retention recommendations.
+
+**The ultimate objective is to help District balance customer willingness-to-pay, booking conversion, and sustainable platform revenue through data-driven pricing decisions.**
+
+---
+
+### 👨‍💻 Author
+
+**Ajeet Yadav**
+
+Aspiring Data Analyst | Business Analytics | Product Analytics
+
+**Core Skills:** SQL | Python | Power BI | DAX | A/B Testing | Statistical Analysis | Business Intelligence
